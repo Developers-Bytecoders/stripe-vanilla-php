@@ -1,4 +1,5 @@
 <?php
+session_start(); // Inicia la sesión
 // Primero, necesitamos cargar todas las bibliotecas necesarias.
 // 'vendor/autoload.php' es un archivo generado por Composer que carga automáticamente todas las bibliotecas que hemos instalado.
 require 'vendor/autoload.php';
@@ -38,9 +39,12 @@ try {
         'mode' => 'payment',
         // Especificamos las URL a las que el cliente será redirigido después de completar o cancelar la transacción.
         // Debes reemplazar 'http://localhost:8000/success.php' y 'http://localhost:8000/fails.php' con tus propias URL de éxito y cancelación.
-        'success_url' => 'http://localhost:8000/success.php?session_id={CHECKOUT_SESSION_ID}',
+        'success_url' => 'http://localhost:8000/success.php',
         'cancel_url' => 'http://localhost:8000/fails.php',
     ]);
+
+    // Almacena el session_id en una variable de sesión
+    $_SESSION['session_id'] = $checkout_session->id;
 } catch (Exception $e) {
     // Si algo sale mal al crear la sesión de pago (por ejemplo, si las claves de API son incorrectas o si el identificador del producto no existe), 
     // se lanzará una excepción. Aquí capturamos esa excepción y mostramos el mensaje de error.
