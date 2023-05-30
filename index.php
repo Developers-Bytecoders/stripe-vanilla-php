@@ -38,7 +38,7 @@ try {
         'mode' => 'payment',
         // Especificamos las URL a las que el cliente será redirigido después de completar o cancelar la transacción.
         // Debes reemplazar 'http://localhost:8000/success.php' y 'http://localhost:8000/fails.php' con tus propias URL de éxito y cancelación.
-        'success_url' => 'http://localhost:8000/success.php',
+        'success_url' => 'http://localhost:8000/success.php?session_id={CHECKOUT_SESSION_ID}',
         'cancel_url' => 'http://localhost:8000/fails.php',
     ]);
 } catch (Exception $e) {
