@@ -7,7 +7,7 @@ require 'vendor/autoload.php';
 // Establecemos la clave de API de Stripe.
 // Esta clave se usa para autenticar nuestras solicitudes a la API de Stripe.
 // Asegúrate de reemplazar 'sk_test_51NAwioAyrC2HtajDauOjeCDsBgfinxAeO8uEu89WagyOlWqDtg5gNt3vIHhh1LwOZoxprbm6zyDv5yTQ2OBC8yUS006EaEdJ52' con tu propia clave secreta de Stripe.
-\Stripe\Stripe::setApiKey('sk_test_51NAwioAyrC2HtajDauOjeCDsBgfinxAeO8uEu89WagyOlWqDtg5gNt3vIHhh1LwOZoxprbm6zyDv5yTQ2OBC8yUS006EaEdJ52');
+\Stripe\Stripe::setApiKey('sk_test_51NC5pmE0V2g8pavSgChJSRgS3LCUY8Bl2FLLoLnUCS7EhSYFXjdIZOjw2fbMPDc4NzgYGls1BIV0ce8SjCnadcOJ00couyTAmq');
 
 // A continuación, creamos una nueva sesión de pago para el producto que queremos vender.
 // Esta sesión de pago representa una transacción individual que el cliente va a realizar.
@@ -24,7 +24,7 @@ try {
                 'currency' => 'mxn',
                 // Este es el identificador del producto que estamos vendiendo. 
                 // Debes reemplazar 'prod_NwraoU7vM7pvjP' con el identificador del producto que quieres vender.
-                'product' => 'prod_NwraoU7vM7pvjP',
+                'product' => 'prod_Ny2GdudlR9stZA',
                 // Especificamos el precio por unidad del producto. 
                 // En este caso, el precio es de 2000 centavos, o 20.00 MXN.
                 'unit_amount' => 2000,
@@ -38,9 +38,9 @@ try {
         // Si estuvieras configurando una suscripción, cambiarías esto a 'subscription'.
         'mode' => 'payment',
         // Especificamos las URL a las que el cliente será redirigido después de completar o cancelar la transacción.
-        // Debes reemplazar 'http://localhost:8000/success.php' y 'http://localhost:8000/fails.php' con tus propias URL de éxito y cancelación.
-        'success_url' => 'http://localhost:8000/success.php',
-        'cancel_url' => 'http://localhost:8000/fails.php',
+        // Debes reemplazar 'http://localhost/success.php' y 'http://localhost:8000/fails.php' con tus propias URL de éxito y cancelación.
+        'success_url' => 'http://localhost/stripe/success.php',
+        'cancel_url' => 'http://localhost/stripe/fails.php',
     ]);
 
     // Almacena el session_id en una variable de sesión

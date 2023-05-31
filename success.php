@@ -5,7 +5,7 @@ use Stripe\Stripe;
 
 require 'vendor/autoload.php';
 
-Stripe::setApiKey('sk_test_51NAwioAyrC2HtajDauOjeCDsBgfinxAeO8uEu89WagyOlWqDtg5gNt3vIHhh1LwOZoxprbm6zyDv5yTQ2OBC8yUS006EaEdJ52');
+Stripe::setApiKey('sk_test_51NC5pmE0V2g8pavSgChJSRgS3LCUY8Bl2FLLoLnUCS7EhSYFXjdIZOjw2fbMPDc4NzgYGls1BIV0ce8SjCnadcOJ00couyTAmq');
 
 $transaction_id = NULL;
 
@@ -46,6 +46,7 @@ if (isset($_SESSION['session_id'])) {
     <?php
     if (isset($transaction_id)) {
         echo "<p>ID de la transacción: " . $transaction_id . "</p>";
+        //unset($_SESSION['session_id']);
     } else {
         echo "<p>Transacción no válida.</p>";
     }
